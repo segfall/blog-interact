@@ -1,0 +1,33 @@
+baseURL = "https://mushy-night.surge.sh/"
+title = "utf99"
+theme ="basic"
+languageCode = "en-us"
+enableEmoji = true
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+
+[taxonomies]
+  category = "categories"
+  series = "series"
+  tag = "tags"
+
+[Permalinks]
+  post = "post/:slug"
+
+[[params.menu]]
+name = "blog"
+url = "post/"
+
+[[params.menu]]
+name = "post series"
+url = "series/"
+
+[[params.menu]]
+name = "about"
+url = "about/"
+
+

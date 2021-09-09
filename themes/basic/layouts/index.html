@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html
+  class=""
+  lang="{{ .Site.LanguageCode }}"
+  prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"
+>
+  <head>
+    <meta charset="utf-8" />
+
+    {{ partial "meta.html" . }}
+
+    <title>{{ .Site.Title }}</title>
+    <link rel="canonical" href="{{ .Permalink }}" />
+{{ $sitetitle := .Site.Title }}
+{{ with .OutputFormats.Get "RSS" }}
+    <link
+      href="{{ .RelPermalink }}"
+      rel="alternate"
+      type="application/rss+xml"
+      title="{{ $sitetitle }}"
+    />
+{{ end }}
+    {{ partial "head_includes.html" . }}
+  </head>
+  <body
+    lang="{{ .Site.LanguageCode }}"
+    class="sans-serif w-90 w-60-ns center center-ns mv2 mv5-ns"
+  >
+    <section id="main">
+      <div>
+        <h1 id="title" class="f3">
+          {{ .Site.Title }}
+        </h1>
+        <div style="display: flex">
+          <div style="min-width: 300px">
+            <img src="./dead.gif" style="max-width: 300px" />
+          </div>
+          <div style="padding: .5rem;">
+            {{ range first 10 .Site.RegularPages }}
+              <a href="{{ .Permalink }}">
+                <h5>
+                  {{ .Title }}
+                </h5>
+              </a>
+            {{ end }}
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    {{ partial "footer.html" . }}
+  </body>
+</html>
